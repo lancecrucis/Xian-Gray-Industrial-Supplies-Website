@@ -128,6 +128,7 @@ address { font-style: normal; }
   background: #151716;
 }
 .catalog-intro-frame {
+  position: relative;
   min-height: 464px;
   height: calc(80svh - 70px);
   overflow: hidden;
@@ -330,7 +331,7 @@ address { font-style: normal; }
   .hero-descriptor { max-width: 340px; margin-top: 30px; }
   .hero-ctas { width: 100%; max-width: 360px; }
   .hero-ctas .button { flex: 1; }
-  .hero-characters-top-anchor { width: 100%; height: 125px; }
+  .hero-characters-top-anchor { display: none; }
   .hero-characters-top-anchor .hero-characters { left: 50%; transform: translateX(-50%) scale(.312); }
   .catalog-intro-frame { min-height: 400px; }
   .catalog-values { min-height: 120px; margin-top: 29px; }
