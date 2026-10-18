@@ -131,6 +131,7 @@ address { font-style: normal; }
   background: #151716;
   border-block: 1px solid #343734;
 }
+.catalog-intro-frame::before { position: absolute; inset: -20%; z-index: 0; content: ''; pointer-events: none; background: radial-gradient(circle at 50% 50%, rgba(228,194,63,.09), transparent 42%), linear-gradient(112deg, transparent 35%, rgba(228,194,63,.13) 48%, rgba(255,239,167,.08) 52%, transparent 65%); mix-blend-mode: screen; opacity: .7; transform: translateX(-58%) rotate(-4deg); animation: catalog-gold-sweep 5s ease-in-out infinite; }
 .catalog-grid-layer {
   position: absolute;
   inset: -120px;
@@ -146,6 +147,10 @@ address { font-style: normal; }
   0% { opacity: 0; transform: translate3d(0, 38px, 0) scale(.94); }
   55% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
   100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes catalog-gold-sweep {
+  0%, 100% { transform: translateX(-58%) rotate(-4deg); opacity: .42; }
+  50% { transform: translateX(58%) rotate(-4deg); opacity: .78; }
 }
 .products-section { color: var(--ink); background: var(--paper); }
 .products-section .section-topline { margin-bottom: 52px; }
@@ -256,22 +261,9 @@ address { font-style: normal; }
 }
 .motion-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 
-.products-grid .product-card:nth-child(2),
-.benefits-grid .benefit:nth-child(2),
 .partnership-steps li:nth-child(2) { transition-delay: 70ms; }
-.products-grid .product-card:nth-child(3),
-.benefits-grid .benefit:nth-child(3),
 .partnership-steps li:nth-child(3) { transition-delay: 140ms; }
-.products-grid .product-card:nth-child(4) { transition-delay: 210ms; }
-.products-grid .product-card:nth-child(5) { transition-delay: 40ms; }
-.products-grid .product-card:nth-child(6) { transition-delay: 110ms; }
-.products-grid .product-card:nth-child(7) { transition-delay: 180ms; }
-.products-grid .product-card:nth-child(8) { transition-delay: 250ms; }
-.products-grid .product-card:hover { transition-delay: 0ms; }
-.motion-ready .product-card.is-visible:hover { transform: translateY(-5px); }
 
-.hero-descriptor { transition-delay: 100ms !important; }
-.hero-ctas { transition-delay: 190ms !important; }
 .hero::after { animation: tile-in .9s .24s ease-out both; }
 
 .partnership-steps li { position: relative; border-top: 0; }
