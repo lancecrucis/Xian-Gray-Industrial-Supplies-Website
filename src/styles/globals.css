@@ -116,7 +116,8 @@ address { font-style: normal; }
 .hero-lockup-copy span { margin-top: 17px; font-size: clamp(14px, 1.6vw, 23px); letter-spacing: .44em; white-space: nowrap; }
 .hero-descriptor { margin-top: 38px; color: #4f524e; font-size: clamp(16px, 1.5vw, 20px); }
 .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
-.hero-characters-anchor { position: absolute; z-index: 2; bottom: -4px; left: 50%; width: 550px; height: 400px; pointer-events: none; transform: translateX(-50%) scale(.78); transform-origin: bottom center; }
+.hero-characters-top-anchor { position: relative; width: 550px; height: 126px; margin-bottom: -2px; pointer-events: none; }
+.hero-characters-top-anchor .hero-characters { position: absolute; bottom: 0; left: 0; transform: scale(.32); transform-origin: bottom center; }
 .hero-characters { position: relative; width: 550px; height: 400px; }
 .hero-character { position: absolute; bottom: 0; overflow: hidden; border-radius: 10px 10px 0 0; transform-origin: bottom center; transition: height .7s ease-in-out, transform .7s ease-in-out; }
 .hero-character-pale-yellow { border-radius: 120px 120px 0 0; }
@@ -343,6 +344,8 @@ address { font-style: normal; }
   .hero-descriptor { max-width: 340px; margin-top: 30px; }
   .hero-ctas { width: 100%; max-width: 360px; }
   .hero-ctas .button { flex: 1; }
+  .hero-characters-top-anchor { width: 100%; height: 104px; }
+  .hero-characters-top-anchor .hero-characters { left: 50%; transform: translateX(-50%) scale(.26); }
   .catalog-intro-frame { min-height: 500px; }
   .catalog-values { min-height: 150px; margin-top: 36px; }
   .catalog-value { font-size: clamp(42px, 13vw, 74px); }
