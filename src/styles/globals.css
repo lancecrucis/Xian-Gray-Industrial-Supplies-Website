@@ -177,7 +177,8 @@ address { font-style: normal; }
 .layered-text-line-track { display: block; transition: transform .8s cubic-bezier(.22, 1, .36, 1); transition-delay: var(--layered-delay); }
 .layered-text-line-track > span { display: block; height: var(--layered-line-height); padding-inline: 15px; line-height: calc(var(--layered-line-height) - 5px); white-space: nowrap; }
 .layered-text:hover .layered-text-line-track,
-.layered-text:focus-visible .layered-text-line-track { transform: translateY(calc(0px - var(--layered-line-height))); }
+.layered-text:focus-visible .layered-text-line-track,
+.layered-text.is-active .layered-text-line-track { transform: translateY(calc(0px - var(--layered-line-height))); }
 .about-section { color: #f2f2ec; background: var(--charcoal); }
 .about-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(60px, 9vw, 150px); align-items: start; }
 .about-intro { display: flex; min-height: 390px; flex-direction: column; justify-content: space-between; }
@@ -338,7 +339,8 @@ address { font-style: normal; }
   .layered-text-line { height: var(--layered-line-height-md); transform: translateX(var(--layered-offset-md)) skew(var(--layered-skew)) scaleY(var(--layered-scale)); }
   .layered-text-line-track > span { height: var(--layered-line-height-md); line-height: calc(var(--layered-line-height-md) - 5px); }
   .layered-text:hover .layered-text-line-track,
-  .layered-text:focus-visible .layered-text-line-track { transform: translateY(calc(0px - var(--layered-line-height-md))); }
+  .layered-text:focus-visible .layered-text-line-track,
+  .layered-text.is-active .layered-text-line-track { transform: translateY(calc(0px - var(--layered-line-height-md))); }
   .products-grid { grid-template-columns: 1fr; }
   .products-section .section-topline { margin-bottom: 34px; }
   .product-card h3 { min-height: auto; }
@@ -371,6 +373,5 @@ address { font-style: normal; }
 
 @media (prefers-reduced-motion: reduce) {
   html:not(.motion-preview) { scroll-behavior: auto; }
-  html:not(.motion-preview) *, html:not(.motion-preview) *::before, html:not(.motion-preview) *::after { transition: none !important; animation: none !important; }
-  html:not(.motion-preview) [data-reveal] { opacity: 1 !important; transform: none !important; }
+  html:not(.motion-preview) [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

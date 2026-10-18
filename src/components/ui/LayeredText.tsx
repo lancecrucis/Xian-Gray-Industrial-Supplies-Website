@@ -1,4 +1,4 @@
-import type React from 'react'
+import { useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react'
 
 interface LayeredTextLine {
   top: string
@@ -32,13 +32,28 @@ export function LayeredText({
   lineHeightMd = 35,
   className = '',
 }: LayeredTextProps) {
+  const [isActive, setIsActive] = useState(false)
   const centerIndex = Math.floor(lines.length / 2)
 
+  const toggleFromTouch = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== 'mouse') setIsActive(current => !current)
+  }
+
+  const toggleFromKeyboard = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return
+    event.preventDefault()
+    setIsActive(current => !current)
+  }
+
   return <div
-    className={`layered-text ${className}`}
+    className={`layered-text${isActive ? ' is-active' : ''}${className ? ` ${className}` : ''}`}
     tabIndex={0}
+    role="button"
+    aria-pressed={isActive}
     aria-label="Genuine service, honest work, quality you can trust"
-    style={{ '--layered-font-size': fontSize, '--layered-font-size-md': fontSizeMd } as React.CSSProperties}
+    onPointerUp={toggleFromTouch}
+    onKeyDown={toggleFromKeyboard}
+    style={{ '--layered-font-size': fontSize, '--layered-font-size-md': fontSizeMd } as CSSProperties}
   >
     <ul className="layered-text-list" aria-hidden="true">
       {lines.map((line, index) => {
@@ -57,7 +72,7 @@ export function LayeredText({
             '--layered-skew': isSlanted ? '60deg, -30deg' : '0deg, -30deg',
             '--layered-scale': isSlanted ? '.66667' : '1.33333',
             '--layered-delay': `${index * 0.06}s`,
-          } as React.CSSProperties}
+          } as CSSProperties}
         >
           <span className="layered-text-line-track">
             <span>{line.top}</span>
