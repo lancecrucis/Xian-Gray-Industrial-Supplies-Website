@@ -19,7 +19,7 @@ npm run build
 ## Website structure
 
 - Logo-led landing section with a technical grid background
-- Scroll-driven sticky parallax transition into the product catalogue
+- Static supply overview transition into the product catalogue
 - Eight product categories with optimized WebP imagery
 - Company overview and sourcing benefits
 - Three-step inquiry process
@@ -40,4 +40,4 @@ Set the same environment variable in the production hosting provider before depl
 
 ## Accessibility and motion
 
-The site includes semantic landmarks, a skip link, labeled form controls, visible keyboard focus, status announcements, and reduced-motion support. Scroll reveal animations run once per page load. The catalogue transition uses a sticky, scroll-driven parallax scene.
+The site includes semantic landmarks, a skip link, labeled form controls, visible keyboard focus, status announcements, and reduced-motion support. Scroll reveal animations run once per page load. The catalogue transition is a static section.

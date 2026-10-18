@@ -8,13 +8,12 @@ import { PartnershipsSection } from './components/sections/PartnershipsSection'
 import { WhyChooseUsSection } from './components/sections/WhyChooseUsSection'
 import { ContactSection } from './components/sections/ContactSection'
 import { CatalogIntroSection } from './components/sections/CatalogIntroSection'
+import { LayeredTextSection } from './components/sections/LayeredTextSection'
 import { useScrollReveal } from './hooks/useScrollReveal'
-import { useParallax } from './hooks/useParallax'
 
 export default function App() {
   const [category, setCategory] = useState('')
   useScrollReveal()
-  useParallax()
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
     <Navbar />
@@ -23,6 +22,7 @@ export default function App() {
       <WhyChooseUsSection /><PartnershipsSection />
       <ContactSection category={category} onCategoryChange={setCategory} />
     </main>
+    <LayeredTextSection />
     <Footer onSelect={setCategory} />
   </>
 }

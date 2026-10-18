@@ -1,4 +1,3 @@
-import cityscape from '../../assets/footer-cityscape.webp'
 import { company, navigation } from '../../data/company'
 import { products } from '../../data/products'
 import { Brand } from '../ui/Brand'
@@ -10,5 +9,5 @@ export function Footer({ onSelect }: { onSelect: (category: string) => void }) {
     <div><h2>Our products</h2><nav aria-label="Product shortcuts">{[products[0], products[1], products[2], products[4]].map(product => <a key={product.id} href="#contact" onClick={() => onSelect(product.name)}>{product.name}</a>)}<a href="#products">View all products</a></nav></div>
     <div className="footer-contact"><h2>Let’s connect</h2><a href="#contact" aria-label="Open the inquiry form">{company.email}</a><address>{company.address}</address><a className="footer-quote" href="#contact">Contact us</a></div></div>
     <div className="footer-meta" data-reveal="up"><span>© {new Date().getFullYear()} Xian & Gray Industrial Supplies. All rights reserved.</span><a href="#home">Back to top</a></div>
-  </Container><div className="footer-skyline" data-reveal="footer" aria-hidden="true" style={{ backgroundImage: `url("${cityscape}")` }} /></footer>
+  </Container></footer>
 }
