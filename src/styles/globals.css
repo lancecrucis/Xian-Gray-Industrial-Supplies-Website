@@ -116,6 +116,17 @@ address { font-style: normal; }
 .hero-lockup-copy span { margin-top: 17px; font-size: clamp(14px, 1.6vw, 23px); letter-spacing: .44em; white-space: nowrap; }
 .hero-descriptor { margin-top: 38px; color: #4f524e; font-size: clamp(16px, 1.5vw, 20px); }
 .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.hero-characters-anchor { position: absolute; z-index: 2; bottom: -4px; left: 50%; width: 550px; height: 400px; pointer-events: none; transform: translateX(-50%) scale(.78); transform-origin: bottom center; }
+.hero-characters { position: relative; width: 550px; height: 400px; }
+.hero-character { position: absolute; bottom: 0; overflow: hidden; border-radius: 10px 10px 0 0; transform-origin: bottom center; transition: height .7s ease-in-out, transform .7s ease-in-out; }
+.hero-character-pale-yellow { border-radius: 120px 120px 0 0; }
+.hero-character-yellow { border-radius: 70px 70px 0 0; }
+.hero-character-face { position: absolute; display: flex; align-items: center; transition: left .2s ease-out, top .2s ease-out; }
+.hero-character-face-gray, .hero-character-face-pale-yellow { gap: 32px; }
+.hero-character-face-black, .hero-character-face-yellow { gap: 24px; }
+.hero-character-eyeball { display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%; transition: height .15s ease; }
+.hero-character-pupil { flex: 0 0 auto; border-radius: 50%; transition: transform .1s ease-out; }
+.hero-character-mouth { width: 80px; height: 4px; border-radius: 999px; background: #2D2D2D; transition: left .2s ease-out, top .2s ease-out; }
 
 .catalog-intro {
   position: relative;
