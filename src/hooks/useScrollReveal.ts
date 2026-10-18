@@ -4,13 +4,11 @@ export function useScrollReveal() {
   useEffect(() => {
     const root = document.documentElement
     const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches && !import.meta.env.DEV
-
-    if (import.meta.env.DEV) root.classList.add('motion-preview')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reducedMotion) {
       elements.forEach(element => element.classList.add('is-visible'))
-      return () => root.classList.remove('motion-preview')
+      return
     }
 
     root.classList.add('motion-ready')
@@ -26,7 +24,6 @@ export function useScrollReveal() {
     return () => {
       observer.disconnect()
       root.classList.remove('motion-ready')
-      root.classList.remove('motion-preview')
     }
   }, [])
 }
