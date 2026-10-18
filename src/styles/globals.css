@@ -160,7 +160,7 @@ address { font-style: normal; }
 }
 .products-section { color: var(--ink); background: var(--paper); }
 .products-section .section-topline { margin-bottom: 52px; }
-.products-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.products-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .product-card { overflow: hidden; display: flex; min-height: 520px; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s ease, box-shadow .35s ease; }
 .product-card:hover { transform: translateY(-3px); border-color: #d5bd5b; box-shadow: 0 12px 30px rgba(30,32,31,.08); }
 .product-card-image-wrap { aspect-ratio: 4 / 3; overflow: hidden; background: #ecece7; }
