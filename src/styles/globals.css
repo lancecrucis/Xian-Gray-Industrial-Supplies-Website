@@ -101,7 +101,7 @@ address { font-style: normal; }
 .hero::after { position: absolute; inset: -16%; z-index: 0; content: ''; pointer-events: none; opacity: .50; background-image: linear-gradient(rgba(31,34,32,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(31,34,32,.12) 1px, transparent 1px); background-size: 56px 56px; transform: rotate(-4deg); }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(440px, .95fr); gap: clamp(56px, 7vw, 112px); align-items: center; }
 .hero-copy { max-width: 710px; }
-.hero-eyebrow { max-width: 610px; color: #705c12; font-size: 13px; font-weight: 800; letter-spacing: .13em; line-height: 1.5; text-transform: uppercase; }
+.hero-eyebrow { width: fit-content; max-width: 100%; padding: 3px 5px; color: var(--ink); background: var(--gold); font-size: 13px; font-weight: 800; letter-spacing: .13em; line-height: 1.5; text-transform: uppercase; }
 .hero h1 { max-width: 720px; margin-top: 20px; font-size: clamp(44px, 4.6vw, 68px); font-weight: 800; letter-spacing: -.055em; }
 .hero-descriptor { max-width: 650px; margin-top: 22px; color: #4f524e; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.65; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
