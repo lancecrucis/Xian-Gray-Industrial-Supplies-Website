@@ -4,11 +4,13 @@ import { company } from '../../data/company'
 import { products } from '../../data/products'
 import { Container } from '../ui/Container'
 
+const defaultFormEndpoint = 'https://formspree.io/f/mnpjrvwv'
+
 export function ContactSection({ category, onCategoryChange }: { category: string; onCategoryChange: (value: string) => void }) {
   const [status, setStatus] = useState('')
   const [sending, setSending] = useState(false)
   const [copyStatus, setCopyStatus] = useState('Copy email')
-  const formEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined
+  const formEndpoint = (import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined) || defaultFormEndpoint
   async function copyEmail() {
     try {
       await navigator.clipboard.writeText(company.email)
@@ -28,10 +30,6 @@ export function ContactSection({ category, onCategoryChange }: { category: strin
     }
     const formData = new FormData(form)
     if (String(formData.get('company_website') ?? '')) return
-    if (!formEndpoint) {
-      setStatus('Direct online inquiries are being connected. Please try again shortly.')
-      return
-    }
     setSending(true)
     setStatus('Sending your inquiry…')
     try {
@@ -55,7 +53,7 @@ export function ContactSection({ category, onCategoryChange }: { category: strin
       <div className="form-row"><label>Email address <span>*</span><input name="email" type="email" autoComplete="email" placeholder="you@company.com" required maxLength={254} /></label><label>Phone number <span className="optional">(optional)</span><input name="phone" type="tel" autoComplete="tel" placeholder="Your contact number" maxLength={40} /></label></div>
       <label>Product category <span>*</span><select name="category" required value={category} onChange={event => onCategoryChange(event.target.value)}><option value="" disabled>Select a product category</option>{products.map(product => <option key={product.id}>{product.name}</option>)}<option>Other / sourcing inquiry</option></select></label>
       <label>Message / requirements <span>*</span><textarea name="message" required rows={4} maxLength={1500} placeholder="Products, quantities, specifications, and when you need them…" /></label>
-      <p className="form-note" id="email-note">Your inquiry will be sent directly to Xian &amp; Gray.</p>
+      <p className="form-note" id="email-note">Your inquiry will be sent directly to Xian &amp; Gray. We use these details only to respond to your request.</p>
       <div className="email-fallback"><span>Prefer email?</span><a href={`mailto:${company.email}`}>{company.email}</a><button className="button button-secondary" type="button" onClick={copyEmail}>{copyStatus}</button></div>
       <button className="button button-primary submit-button" type="submit" aria-describedby="email-note" disabled={sending}>{sending ? 'Sending…' : 'Send inquiry'}</button>
       <p className="form-status" role="status" aria-live="polite">{status}</p>

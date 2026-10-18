@@ -7,7 +7,7 @@ import { ProductsSection } from './components/sections/ProductsSection'
 import { PartnershipsSection } from './components/sections/PartnershipsSection'
 import { WhyChooseUsSection } from './components/sections/WhyChooseUsSection'
 import { ContactSection } from './components/sections/ContactSection'
-import { CatalogIntroSection } from './components/sections/CatalogIntroSection'
+import { CompanyProfileSection } from './components/sections/CompanyProfileSection'
 import { LayeredTextSection } from './components/sections/LayeredTextSection'
 import { useScrollReveal } from './hooks/useScrollReveal'
 
@@ -18,8 +18,8 @@ export default function App() {
     <a className="skip-link" href="#main">Skip to content</a>
     <Navbar />
     <main id="main">
-      <HeroSection /><CatalogIntroSection /><ProductsSection onSelect={setCategory} /><AboutSection />
-      <WhyChooseUsSection /><PartnershipsSection />
+      <HeroSection /><ProductsSection onSelect={setCategory} /><AboutSection />
+      <WhyChooseUsSection /><CompanyProfileSection /><PartnershipsSection />
       <ContactSection category={category} onCategoryChange={setCategory} />
     </main>
     <LayeredTextSection />
