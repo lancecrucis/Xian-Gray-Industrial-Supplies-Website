@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "card3d": "file:../../card3d-main",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

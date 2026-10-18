@@ -1,12 +1,45 @@
-import 'card3d'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import sourcingCoordination from '../../assets/hero-sourcing-coordination.webp'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 
 export function HeroSection() {
+  const visual = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    document.dispatchEvent(new Event('DOMContentLoaded'))
+    const element = visual.current
+    if (!element) return
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let frame = 0
+
+    const reset = () => {
+      window.cancelAnimationFrame(frame)
+      element.style.transform = ''
+    }
+
+    const tilt = (event: PointerEvent) => {
+      if (reducedMotion.matches || event.pointerType === 'touch' || window.innerWidth <= 680) return
+
+      window.cancelAnimationFrame(frame)
+      frame = window.requestAnimationFrame(() => {
+        const rect = element.getBoundingClientRect()
+        const horizontal = (event.clientX - window.innerWidth / 2) / (window.innerWidth / 2)
+        const vertical = (event.clientY - (rect.top + rect.height / 2)) / (window.innerHeight / 2)
+        element.style.transform = `perspective(1000px) rotateX(${vertical * 10}deg) rotateY(${horizontal * -10}deg) scale(1.02)`
+      })
+    }
+
+    document.addEventListener('pointermove', tilt, { passive: true })
+    document.documentElement.addEventListener('pointerleave', reset)
+    window.addEventListener('blur', reset)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      document.removeEventListener('pointermove', tilt)
+      document.documentElement.removeEventListener('pointerleave', reset)
+      window.removeEventListener('blur', reset)
+    }
   }, [])
 
   return <section id="home" className="hero" aria-label="Xian and Gray Industrial Supplies">
@@ -22,7 +55,7 @@ export function HeroSection() {
           <li><strong>PH</strong><span>Business support</span></li>
         </ul>
       </div>
-      <div className="hero-visual" data-card3d="" data-card3d-full-page-listening="true" data-card3d-perspective="1000" data-card3d-delta="10" data-card3d-scale="1.02">
+      <div className="hero-visual" ref={visual}>
         <img className="hero-industry-scene" src={sourcingCoordination} alt="Sourcing coordinator connecting a client requirement with industrial safety, cleanroom and facility supply partners" width="1536" height="1024" fetchPriority="high" />
       </div>
     </Container>

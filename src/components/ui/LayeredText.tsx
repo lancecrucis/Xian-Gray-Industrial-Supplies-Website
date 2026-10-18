@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react'
 
 interface LayeredTextLine {
   top: string
@@ -33,7 +33,28 @@ export function LayeredText({
   className = '',
 }: LayeredTextProps) {
   const [isActive, setIsActive] = useState(false)
+  const [isPreviewing, setIsPreviewing] = useState(false)
+  const element = useRef<HTMLDivElement>(null)
   const centerIndex = Math.floor(lines.length / 2)
+
+  useEffect(() => {
+    const target = element.current
+    if (!target || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    let previewTimer = 0
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return
+      setIsPreviewing(true)
+      previewTimer = window.setTimeout(() => setIsPreviewing(false), 1400)
+      observer.disconnect()
+    }, { threshold: 0.45 })
+
+    observer.observe(target)
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(previewTimer)
+    }
+  }, [])
 
   const toggleFromTouch = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== 'mouse') setIsActive(current => !current)
@@ -46,7 +67,8 @@ export function LayeredText({
   }
 
   return <div
-    className={`layered-text${isActive ? ' is-active' : ''}${className ? ` ${className}` : ''}`}
+    ref={element}
+    className={`layered-text${isActive || isPreviewing ? ' is-active' : ''}${className ? ` ${className}` : ''}`}
     tabIndex={0}
     role="button"
     aria-pressed={isActive}
