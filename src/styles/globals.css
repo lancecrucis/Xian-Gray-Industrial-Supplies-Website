@@ -114,8 +114,9 @@ address { font-style: normal; }
 .hero-proof strong, .hero-proof span { display: block; }
 .hero-proof strong { font-family: var(--font-display); font-size: 17px; line-height: 1.2; }
 .hero-proof span { margin-top: 6px; color: #676a64; font-size: 12px; }
-.hero-visual { --hero-tilt-x: 0deg; --hero-tilt-y: 0deg; position: relative; min-height: 0; display: flex; align-items: center; justify-content: center; transform: perspective(1200px) rotateX(var(--hero-tilt-y)) rotateY(var(--hero-tilt-x)); transform-style: preserve-3d; transition: transform .45s cubic-bezier(.22,1,.36,1); }
-.hero-industry-scene { width: min(100%, 680px); max-height: 600px; object-fit: contain; }
+.hero-visual { position: relative; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: visible !important; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.22,1,.36,1) !important; will-change: transform; }
+.hero-visual::after { position: absolute; z-index: 0; right: 10%; bottom: 4%; left: 10%; height: 16%; content: ''; border-radius: 50%; background: rgba(31,34,32,.08); filter: blur(22px); transform: translateY(22px) scaleX(.84); pointer-events: none; }
+.hero-industry-scene { position: relative; z-index: 1; width: min(100%, 680px); max-height: 600px; object-fit: contain; border-radius: 18px; box-shadow: 0 28px 46px -14px rgba(31,34,32,.12), 0 8px 16px rgba(31,34,32,.10); }
 
 .catalog-intro {
   position: relative;
