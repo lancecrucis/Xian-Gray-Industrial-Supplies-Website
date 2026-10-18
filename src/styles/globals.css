@@ -106,6 +106,10 @@ address { font-style: normal; }
 .hero-lockup-copy span { margin-top: 17px; font-size: clamp(14px, 1.6vw, 23px); letter-spacing: .44em; white-space: nowrap; }
 .hero-descriptor { margin-top: 38px; color: #4f524e; font-size: clamp(16px, 1.5vw, 20px); }
 .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.hero-ctas .hero-button-primary { color: #f5f5ef; background: #202220; border-color: #202220; }
+.hero-ctas .hero-button-primary:hover { background: #343735; border-color: #343735; }
+.hero-ctas .hero-button-secondary { color: #f5f5ef; background: #454944; border-color: #454944; }
+.hero-ctas .hero-button-secondary:hover { background: #565b57; border-color: #565b57; }
 .hero-characters-top-anchor { position: relative; width: 550px; height: 126px; margin-bottom: -2px; pointer-events: none; }
 .hero-characters-top-anchor .hero-characters { position: absolute; bottom: 0; left: 0; transform: scale(.32); transform-origin: bottom center; }
 .hero-characters { position: relative; width: 550px; height: 400px; }

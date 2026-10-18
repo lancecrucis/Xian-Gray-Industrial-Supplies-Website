@@ -14,7 +14,7 @@ export function HeroSection() {
         <div className="hero-lockup-copy"><strong>XIAN &amp; GRAY</strong><span>INDUSTRIAL SUPPLIES</span></div>
       </div>
       <p className="hero-descriptor">Industrial, cleanroom, safety and workplace supplies.</p>
-      <div className="hero-ctas"><Button href="#products">View products</Button><Button href="#contact" variant="secondary">Start an inquiry</Button></div>
+      <div className="hero-ctas"><Button href="#products" variant="dark" className="hero-button-primary">View products</Button><Button href="#contact" variant="dark" className="hero-button-secondary">Start an inquiry</Button></div>
     </Container>
   </section>
 }
