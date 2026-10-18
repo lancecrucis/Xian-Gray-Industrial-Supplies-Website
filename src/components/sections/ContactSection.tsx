@@ -1,12 +1,23 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import { company } from '../../data/company'
 import { products } from '../../data/products'
 import { Container } from '../ui/Container'
 
 export function ContactSection({ category, onCategoryChange }: { category: string; onCategoryChange: (value: string) => void }) {
   const [status, setStatus] = useState('')
   const [sending, setSending] = useState(false)
+  const [copyStatus, setCopyStatus] = useState('Copy email')
   const formEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(company.email)
+      setCopyStatus('Copied')
+      window.setTimeout(() => setCopyStatus('Copy email'), 1600)
+    } catch {
+      setCopyStatus('Copy unavailable')
+    }
+  }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const form = event.currentTarget
@@ -45,6 +56,7 @@ export function ContactSection({ category, onCategoryChange }: { category: strin
       <label>Product category <span>*</span><select name="category" required value={category} onChange={event => onCategoryChange(event.target.value)}><option value="" disabled>Select a product category</option>{products.map(product => <option key={product.id}>{product.name}</option>)}<option>Other / sourcing inquiry</option></select></label>
       <label>Message / requirements <span>*</span><textarea name="message" required rows={4} maxLength={1500} placeholder="Products, quantities, specifications, and when you need them…" /></label>
       <p className="form-note" id="email-note">Your inquiry will be sent directly to Xian &amp; Gray.</p>
+      <div className="email-fallback"><span>Prefer email?</span><a href={`mailto:${company.email}`}>{company.email}</a><button className="button button-secondary" type="button" onClick={copyEmail}>{copyStatus}</button></div>
       <button className="button button-primary submit-button" type="submit" aria-describedby="email-note" disabled={sending}>{sending ? 'Sending…' : 'Send inquiry'}</button>
       <p className="form-status" role="status" aria-live="polite">{status}</p>
     </form>

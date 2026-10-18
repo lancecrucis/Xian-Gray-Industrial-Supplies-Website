@@ -239,9 +239,9 @@ address { font-style: normal; }
 .submit-button { width: 100%; }
 .form-status { color: #51471e; font-size: 13px; }
 .form-status:not(:empty) { margin-top: 16px; padding: 13px 14px; border-left: 3px solid #b99c2b; background: #f8f4df; }
-.email-fallback { margin-top: 16px; color: #555850; font-size: 13px; }
+.email-fallback { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin: 4px 0 18px; color: #555850; font-size: 13px; }
 .email-fallback a { text-decoration: underline; overflow-wrap: anywhere; }
-.email-fallback button { margin-block: 14px; }
+.email-fallback button { min-height: 42px; margin: 0; padding: 9px 14px; font-size: 13px; }
 .email-fallback pre { margin-top: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
 .honeypot { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; white-space: nowrap !important; }
 
