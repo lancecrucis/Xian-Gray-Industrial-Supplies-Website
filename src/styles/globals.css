@@ -89,7 +89,6 @@ address { font-style: normal; }
 .menu-toggle { display: none; border: 0; padding: 10px 0 10px 14px; color: #fff; background: transparent; }
 
 .hero {
-  --grid: 48px;
   position: relative;
   min-height: calc(100svh - 88px);
   overflow: hidden;
@@ -98,15 +97,6 @@ address { font-style: normal; }
   padding-block: 70px;
   color: var(--ink);
   background-color: #fafaf7;
-  background-image: linear-gradient(rgba(87,105,116,.115) 1px, transparent 1px), linear-gradient(90deg, rgba(87,105,116,.115) 1px, transparent 1px);
-  background-size: var(--grid) var(--grid);
-}
-.hero::after {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  content: '';
-  background: linear-gradient(rgba(89,106,117,.13), rgba(89,106,117,.13)) 144px 192px / var(--grid) var(--grid) no-repeat, linear-gradient(rgba(89,106,117,.10), rgba(89,106,117,.10)) 336px 576px / var(--grid) var(--grid) no-repeat, linear-gradient(rgba(89,106,117,.12), rgba(89,106,117,.12)) calc(100% - 240px) 288px / var(--grid) var(--grid) no-repeat;
 }
 .hero-brand-stage { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .hero-lockup { display: flex; align-items: center; justify-content: center; gap: clamp(28px, 4vw, 58px); }
@@ -277,18 +267,12 @@ address { font-style: normal; }
 .partnership-steps li:nth-child(2) { transition-delay: 70ms; }
 .partnership-steps li:nth-child(3) { transition-delay: 140ms; }
 
-.hero::after { animation: tile-in .9s .24s ease-out both; }
-
 .partnership-steps li { position: relative; border-top: 0; }
 .partnership-steps li::before { position: absolute; top: 0; right: 0; left: 0; height: 1px; content: ''; background: #373a36; transform: scaleX(0); transform-origin: left; transition: transform .8s .18s cubic-bezier(.22, 1, .36, 1); }
 .partnership-steps li:first-child::before { display: none; }
 .partnership-steps li.is-visible::before { transform: scaleX(1); }
 .form-status:not(:empty) { animation: status-in .32s ease-out both; }
 
-@keyframes tile-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 @keyframes status-in {
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
@@ -334,8 +318,7 @@ address { font-style: normal; }
   .container { width: calc(100% - 40px); }
   .section { padding-block: 76px; }
   h2 { font-size: clamp(38px, 12vw, 52px); }
-  .hero { --grid: 40px; padding-block: 56px; }
-  .hero::after { background: linear-gradient(rgba(89,106,117,.12), rgba(89,106,117,.12)) 80px 160px / var(--grid) var(--grid) no-repeat, linear-gradient(rgba(89,106,117,.10), rgba(89,106,117,.10)) 280px 440px / var(--grid) var(--grid) no-repeat; }
+  .hero { padding-block: 56px; }
   .hero-lockup { flex-direction: column; gap: 14px; }
   .hero-logo { width: clamp(180px, 54vw, 250px); }
   .hero-lockup-copy { align-items: center; text-align: center; }
