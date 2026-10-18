@@ -121,7 +121,6 @@ address { font-style: normal; }
 .hero-character-face-black, .hero-character-face-yellow { gap: 24px; }
 .hero-character-eyeball { display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 50%; transition: height .15s ease; }
 .hero-character-pupil { flex: 0 0 auto; border-radius: 50%; transition: transform .1s ease-out; }
-.hero-character-mouth { width: 80px; height: 4px; border-radius: 999px; background: #2D2D2D; transition: left .2s ease-out, top .2s ease-out; }
 
 .catalog-intro {
   position: relative;

@@ -351,7 +351,6 @@ export function AnimatedCharacters({
         <Pupil size={12} maxDistance={5} cursor={cursor} x={isPasswordRevealed ? -5 : undefined} y={isPasswordRevealed ? -4 : undefined} />
         <Pupil size={12} maxDistance={5} cursor={cursor} x={isPasswordRevealed ? -5 : undefined} y={isPasswordRevealed ? -4 : undefined} />
       </div>
-      <div className="hero-character-mouth" style={getFaceStyle(isPasswordRevealed ? 10 : 40 + yellowPosition.faceX, isPasswordRevealed ? 88 : 88 + yellowPosition.faceY)} />
     </div>
   </div>
 }
