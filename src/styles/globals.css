@@ -334,7 +334,7 @@ address { font-style: normal; }
   .hero-ctas .button { flex: 1; }
   .hero-characters-top-anchor { display: none; }
   .hero-characters-top-anchor .hero-characters { left: 50%; transform: translateX(-50%) scale(.312); }
-  .catalog-intro-frame { min-height: 400px; }
+  .catalog-intro-frame { height: 350px; min-height: 350px; }
   .catalog-values { min-height: 120px; margin-top: 29px; }
   .catalog-value { font-size: clamp(34px, 10.4vw, 59px); }
   .layered-text { font-size: var(--layered-font-size-md); }
