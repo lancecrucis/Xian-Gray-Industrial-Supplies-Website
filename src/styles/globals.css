@@ -344,7 +344,11 @@ address { font-style: normal; }
   .layered-text.is-active .layered-text-line-track { transform: translateY(calc(0px - var(--layered-line-height-md))); }
   .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .products-section .section-topline { margin-bottom: 34px; }
-  .product-card h3 { min-height: auto; }
+  .product-card-body { padding: 18px 14px 20px; }
+  .product-card-top { margin-bottom: 12px; }
+  .product-card-top span { font-size: 9px; letter-spacing: .06em; }
+  .product-card h3 { min-height: auto; font-size: clamp(16px, 4.4vw, 19px); letter-spacing: -.025em; line-height: 1.12; }
+  .product-card p { margin-top: 10px; font-size: 12px; line-height: 1.45; }
   .portfolio-note { align-items: stretch; flex-direction: column; }
   .portfolio-note .button { width: 100%; }
   .about-intro { display: block; }
