@@ -36,7 +36,7 @@ export function ContactSection({ category, onCategoryChange }: { category: strin
     }
   }
   return <section id="contact" className="section contact-section"><Container className="contact-grid">
-    <div className="contact-heading" data-reveal="up"><p>Product inquiry</p><h2>Tell us what the work requires.</h2></div>
+    <div className="contact-heading" data-reveal="up"><p>Connect with us</p><h2>Tell us what the work requires.</h2></div>
     <form className="quote-form" data-reveal="up" onSubmit={submit} onChange={() => setStatus('')} onInput={event => { const field = event.target; if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) field.setCustomValidity('') }}>
       <div className="form-intro"><h3>Start your inquiry</h3><p>Required fields marked <span aria-hidden="true">*</span></p></div>
       <label className="honeypot" aria-hidden="true">Company website<input name="company_website" tabIndex={-1} autoComplete="off" /></label>
