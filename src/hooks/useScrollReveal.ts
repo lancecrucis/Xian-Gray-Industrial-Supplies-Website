@@ -4,14 +4,10 @@ export function useScrollReveal() {
   useEffect(() => {
     const root = document.documentElement
     const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches && !import.meta.env.DEV
-
-    if (import.meta.env.DEV) root.classList.add('motion-preview')
-
-    if (reducedMotion) {
-      elements.forEach(element => element.classList.add('is-visible'))
-      return () => root.classList.remove('motion-preview')
-    }
+    // Keep the interaction model identical in development and production.
+    // The site's motion is intentionally part of the visual direction, so the
+    // preview class is applied in both environments instead of being DEV-only.
+    root.classList.add('motion-preview')
 
     root.classList.add('motion-ready')
     const observer = new IntersectionObserver(entries => {

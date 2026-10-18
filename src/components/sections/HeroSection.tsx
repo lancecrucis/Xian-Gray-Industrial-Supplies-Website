@@ -10,7 +10,6 @@ export function HeroSection() {
     const element = visual.current
     if (!element) return
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     let frame = 0
 
     const reset = () => {
@@ -19,7 +18,7 @@ export function HeroSection() {
     }
 
     const tilt = (event: PointerEvent) => {
-      if (reducedMotion.matches || event.pointerType === 'touch' || window.innerWidth <= 680) return
+      if (event.pointerType === 'touch' || window.innerWidth <= 680) return
 
       window.cancelAnimationFrame(frame)
       frame = window.requestAnimationFrame(() => {

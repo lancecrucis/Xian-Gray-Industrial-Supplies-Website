@@ -39,7 +39,7 @@ export function LayeredText({
 
   useEffect(() => {
     const target = element.current
-    if (!target || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!target) return
 
     let previewTimer = 0
     const observer = new IntersectionObserver(entries => {
