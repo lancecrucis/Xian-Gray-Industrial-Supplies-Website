@@ -98,7 +98,7 @@ address { font-style: normal; }
   color: var(--ink);
   background-color: #fafaf7;
 }
-.hero::after { position: absolute; inset: -16%; z-index: 0; content: ''; pointer-events: none; opacity: .70; background-image: linear-gradient(rgba(31,34,32,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(31,34,32,.12) 1px, transparent 1px); background-size: 56px 56px; transform: rotate(-4deg); }
+.hero::after { position: absolute; inset: -16%; z-index: 0; content: ''; pointer-events: none; opacity: .60; background-image: linear-gradient(rgba(31,34,32,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(31,34,32,.12) 1px, transparent 1px); background-size: 56px 56px; transform: rotate(-4deg); }
 .hero-brand-stage { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .hero-lockup { display: flex; align-items: center; justify-content: center; gap: clamp(28px, 4vw, 58px); }
 .hero-logo { width: clamp(210px, 24vw, 340px); }
